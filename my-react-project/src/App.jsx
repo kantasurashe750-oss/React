@@ -200,20 +200,20 @@ import Footer from "./footer"
 
 //form part 2 - Handling Submit
 
-import { useState } from "react"
+// import { useState } from "react"
 
-function App(){
+// function App(){
 
-  const[name, setName] = useState("")
+//   const[name, setName] = useState("")
 
-  function handleSubmit(event){
+//   function handleSubmit(event){
 
-    event.preventDefault()
-    console.log(name);
+//     event.preventDefault()
+//     console.log(name);
     
-  }
+//   }
 
-  return(
+//   return(
     // <div>
     //   <input type="text" 
     //   value={name} 
@@ -225,19 +225,142 @@ function App(){
     // <p>{name}</p> 
     // </div>
 
-    <form onSubmit={handleSubmit}>
 
-      <input type="text" 
-      value={name} 
-      onChange={(event) =>{
-        setName(event.target.value)
-      }} />
 
-      <button type="submit">submit</button>
+//     <form onSubmit={handleSubmit}>
 
-      <p>{name}</p>
-    </form>
+//       <input type="text" 
+//       value={name} 
+//       onChange={(event) =>{
+//         setName(event.target.value)
+//       }} />
+
+//       <button type="submit">submit</button>
+
+//       <p>{name}</p>
+//     </form>
+    
+//   )
+// }
+
+//Forms — Part 3: Show Submit Result
+
+// import { useState } from "react"
+
+// function App(){
+
+//   const [name , setName] = useState("")
+//   const [message , setMessage] = useState("")
+
+//   function handleSubmit(event){
+
+//     event.preventDefault()
+//     setMessage( `hello ${name}`)
+//   }
+//     return(
+
+//       <form onSubmit={handleSubmit}>
+
+//         <input type="text" 
+//         value={name}
+//         onChange={(event) =>{
+//          setName(event.target.value)
+//         }}
+//         />
+
+//         <button type="submit">sumit</button>
+//         <p>{message}</p>
+//       </form>
+//     )
+//   }
+
+//simple login form
+
+// import { useState } from "react"
+
+// function App(){
+
+//   const [username, setUsername] = useState("")
+// const [password, setPassword] = useState("")
+// const [message, setMessage] = useState("")
+
+// function handleSubmit(event){
+
+//   event.preventDefault()
+//   setMessage(`Welcome ${username}`)
+// }
+
+// return(
+
+//   <form onSubmit={handleSubmit}>
+
+//   <input type="text" 
+//   value={username}
+//    onChange={(event)=>{
+//     setUsername(event.target.value)
+//   }} />
+// <br />
+//   <input type="password" 
+//   value={password}  
+//    onChange={(event)=>{
+//     setPassword(event.target.value)
+//   }} 
+//   />
+//   <br />
+//   <button type="submit">Login</button>
+
+//   <p>{message}</p>
+//   </form>
+// )
+// }
+
+//useEffect - Part 1
+
+// import { useEffect , useState } from "react"
+
+
+// function App(){
+
+//   const[count, setCount] = useState(0)
+
+//   useEffect(()=> {
+//     setCount("Welcome to React")
+    
+//   },[count])
+//   return(
+
+//     <div>
+      
+//       <button onClick={()=> setCount(count +1)}>+</button>
+//        <p>{count}</p>
+//     </div>
+
+    
+//   )
+// }
+
+import { useEffect , useState } from "react"
+
+
+function App(){
+
+  const[name, setName] = useState("")
+  const[count, setCount] = useState(0)
+
+  useEffect(()=> {
+    console.log("Welcome to React")
+    
+  },[name])
+  return(
+
+    <div>
+      
+      <button onClick={()=> setCount(count +1)}>+</button>
+       <p>{count}</p>
+    </div>
+
     
   )
 }
+
 export default App
