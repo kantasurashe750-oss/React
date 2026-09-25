@@ -1,5 +1,6 @@
 
 // import { useState } from "react"
+// import { useEffect } from "react"
 import Header from "./Header"
 import Footer from "./footer"
 // import Student from "./Student"
@@ -70,7 +71,7 @@ import Footer from "./footer"
 // }
 
 
-//useState
+//⭐useState
 
 
 
@@ -115,7 +116,7 @@ import Footer from "./footer"
 //   )
 // }
 
-//logical AND &&& rendering 
+//⭐logical AND &&& rendering 
 
 // function App(){
 
@@ -153,7 +154,7 @@ import Footer from "./footer"
 //   )
 // }
 
-// List and Key complete
+// ⭐List and Key complete
 
 // function App(){
 
@@ -176,7 +177,7 @@ import Footer from "./footer"
 // )
 // }
 
-//Forms part 1 - reading
+//⭐Forms part 1 - reading
 
 // import { useState } from "react"
 
@@ -198,7 +199,7 @@ import Footer from "./footer"
 //   )
 // }
 
-//form part 2 - Handling Submit
+//⭐form part 2 - Handling Submit
 
 // import { useState } from "react"
 
@@ -243,7 +244,7 @@ import Footer from "./footer"
 //   )
 // }
 
-//Forms — Part 3: Show Submit Result
+//⭐Forms — Part 3: Show Submit Result
 
 // import { useState } from "react"
 
@@ -274,7 +275,7 @@ import Footer from "./footer"
 //     )
 //   }
 
-//simple login form
+//⭐simple login form
 
 // import { useState } from "react"
 
@@ -314,7 +315,7 @@ import Footer from "./footer"
 // )
 // }
 
-//useEffect - Part 1
+//⭐useEffect - Part 1
 
 // import { useEffect , useState } from "react"
 
@@ -339,28 +340,248 @@ import Footer from "./footer"
 //   )
 // }
 
-import { useEffect , useState } from "react"
+// import { useEffect , useState } from "react"
 
+
+// function App(){
+
+//   const[name, setName] = useState("")
+//   const[count, setCount] = useState(0)
+
+//   useEffect(()=> {
+//     console.log("Welcome to React")
+    
+//   },[name])
+//   return(
+
+//     <div>
+      
+//       <button onClick={()=> setCount(count +1)}>+</button>
+//        <p>{count}</p>
+//     </div>
+
+    
+//   )
+// }
+
+//⭐useEffect when count changed
+
+// import { useState , useEffect } from "react"
+
+// function App(){
+
+//   const [name , setName] = useState("")
+
+//   useEffect(()=>{
+//     console.log("Name changed")
+//   },[name])
+
+//   return(
+
+//     <div>
+
+//       <input type="text"
+//       value={name}
+//       onChange={(event)=>{
+//         setName(event.target.value)
+//       }} />
+
+//       <p>{name}</p>
+//     </div>
+//   )
+// }
+
+//⭐cleanup function  
+
+// import { useState, useEffect } from "react";
+
+// function App(){
+
+//   const [name, setName]= useState("")
+
+// useEffect(() => {
+//   const timer = setInterval(() => {
+//     setName("Hello");
+//   }, 1000);
+
+//   return () => {
+//     clearInterval(timer);
+//   };
+// }, []);
+
+// return(
+
+//   <div>
+//     <input 
+//     value={name}
+//     onChange={(event)=>{
+//       setName(event.target.value)
+//     }} />
+
+//     <p>{name}</p>
+//   </div>
+
+// )
+// }
+
+//⭐API calls in react
+
+// import { useEffect,useState } from "react"
+
+// function App(){
+
+// const[prodcuts , setProdcts] = useState([])
+// const [loading, setLoading] = useState(true)
+
+// useEffect (()=>{
+
+  
+ 
+//   async function getProducts() {
+
+//   const response = await fetch("https://dummyjson.com/products")
+
+//   const data = await response.json()
+
+//   setProdcts(data.products)
+
+//   setLoading(false)
+//   }
+//   getProducts()
+
+// },[])
+
+// return(
+//   <div>
+//     {prodcuts.map((prodcut)=>(
+//       <h2 key={prodcut.id}>{prodcut.title}</h2>
+//     ))}
+//   </div>
+// )
+// }
+
+//⭐ Next: Loading State
+
+// import { useEffect,useState } from "react"
+
+// function App(){
+
+// const[prodcuts , setProdcts] = useState([])
+// const [loading, setLoading] = useState(true)
+// const [error , setError] = useState("")
+
+// useEffect (()=>{
+
+ 
+//   async function getProducts() {
+
+//   const response = await fetch("https://dummyjson.com/products")
+
+//   const data = await response.json()
+
+//   setProdcts(data.products)
+
+//   setLoading(false)
+
+//   } 
+  
+//   getProducts()
+//   }
+// },[])
+
+// return(
+//   <div>
+//     { loading ?(
+//       <h2>loading products....</h2>
+//     ) : (
+//     prodcuts.map((prodcut)=>(
+//       <h2 key={prodcut.id}>{prodcut.title}</h2>
+//     ))
+// )}
+//   </div>
+// )
+
+// ⭐ Error Handling
+// import { useEffect,useState } from "react"
+
+// function App(){
+
+// const[prodcuts , setProdcts] = useState([])
+// const [loading, setLoading] = useState(true)
+// const [error , setError] = useState("")
+
+// useEffect (()=>{
+
+
+ 
+//   async function getProducts() {
+
+//   try{
+
+//   const response = await fetch("https://dummyjson.com/products")
+
+//   const data = await response.json()
+
+//   setProdcts(data.products)
+
+//   setLoading(false)
+
+//   } catch(error){
+
+//     setError("Failed to load products")
+
+//     setLoading(false)
+//   }
+
+//   }
+//   getProducts()
+// },[])
+
+// return(
+//   <div>
+//     {error ?(
+//       <h2>{error}</h2>
+//     ) : loading ?(
+//       <h2>loading products....</h2>
+//     ) : (
+//     prodcuts.map((prodcut)=>(
+//       <h2 key={prodcut.id}>{prodcut.title} <br />
+//       <p><p>Price : {prodcut.price}</p></p>
+//       </h2> 
+      
+//     ))
+// )}
+//   </div>
+// )
+// }
+
+//componet : Design and Structure
+
+import productCard from "./ProductCard"
+import ProductCard from "./ProductCard"
 
 function App(){
 
-  const[name, setName] = useState("")
-  const[count, setCount] = useState(0)
+const products = [
+  { id: 1, name: "Laptop", price: 50000 },
+  { id: 2, name: "Mouse", price: 3000 },
+  { id: 3, name: "Keyboard", price: 1500 }
+]
 
-  useEffect(()=> {
-    console.log("Welcome to React")
-    
-  },[name])
   return(
-
     <div>
-      
-      <button onClick={()=> setCount(count +1)}>+</button>
-       <p>{count}</p>
-    </div>
+      <h1>my shop</h1>
 
-    
+      {products.map((product) =>(
+        <ProductCard 
+        key={product.id}
+        name={product.name}
+        price = {product.price}
+         />
+      ))}
+      
+
+    </div>
   )
 }
-
 export default App
